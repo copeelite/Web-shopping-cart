@@ -181,8 +181,8 @@ router.get("/place-order", (req, res) => {
             cartTotal += meal.price * cartMealkit.qty
             meal.extendedPrice = (meal.price * cartMealkit.qty).toFixed(2)
         })
-        const sgMail = require("@sendgrid/mail");
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        // const sgMail = require("@sendgrid/mail");
+        // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
         const msg = {
             to: email,
@@ -201,12 +201,12 @@ router.get("/place-order", (req, res) => {
                 `
         };
 
-        sgMail.send(msg)
-            .then(() => {
-                console.log("send successfully")
-                req.session.cart = []
-                res.redirect('/customer/cart')
-            })
+        // sgMail.send(msg)
+        //     .then(() => {
+        //         console.log("send successfully")
+        //         req.session.cart = []
+        //         res.redirect('/customer/cart')
+        //     })
         
     }
     else{
