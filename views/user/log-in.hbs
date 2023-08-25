@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="stylesheet" href="/css/SignUpLogin.css">
+  </head>
+  {{>navbar}}
+  <body class="text-center">
+    
+    <main class="login_container form-signin align-items-center m-auto">
+        <form method="post" action="/user/log-in" enctype="multipart/form-data">
+            <h1 class="h3 mb-3 fw-normal">Please Log-in</h1>
+            {{#each errors}}
+              <p style="color:red;">{{this}} {{errors}}</p>
+            {{/each}}
+            <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+            name="email" value="{{values.email}}">
+            <label for="floatingInput">Email address</label>
+            {{#if validationMessages.email}}
+              <span style="color: red;">{{validationMessages.email}}</span><br/>
+            {{/if}}
+            </div>
+            <div class="form-floating">
+
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+              name="password" value="{{values.password}}">
+              <label for="floatingPassword">Password</label>
+              
+              {{#if validationMessages.password}}
+                <span style="color: red;">{{validationMessages.password}}</span><br/>
+              {{/if}}
+            </div>
+
+            <div class="checkbox mb-3 mt-2">
+            <i class="fa-solid fa-user"></i>
+            <label>Login in as:</label>
+                <select id="framework" name="typeOfLogin" value="{{values.typeOfLogin}}">
+                  <option name="Customer" value="Customer">Customer</option>
+                  <option name="Data Entry Clerk" value="Data Entry Clerk">Data Entry Clerk</option>
+                </select>
+            </div>
+            <input class="w-100 btn btn-lg btn-danger mb-2" type="submit" value="Log in"/>
+        </form>
+        <p>
+                By Logging-in you agree to the Carvel Fake Clone Conditons of Use &#38; Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
+            </p>
+    </main>
+
+
+    {{>footer}}
+  </body>
+</html>

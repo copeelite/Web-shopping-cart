@@ -1,0 +1,19 @@
+ <link rel="stylesheet" href="/css/Card.css">
+{{#if title}}
+    <a class="card align-items-center" href="/on-the-menu/{{_id}}">
+        <img src="/image/{{imageUrl}}" class="img-fluid card-img-top" alt="Picture of {{title}}"/>
+        <div class="card_body">
+            <h4>{{title}}</h4>
+            <p>{{includes}}</p>
+            <p class="description">{{description}}</p>
+        </div>
+        <span class="menu-card-link">${{price}}-></span>
+    </a>
+{{else}}
+<tr>
+    <h1>{{title}}</h1>
+    <h1>{{servings}}</h1>
+    <td colspan="4">{{title}} has hidden their information and you cannot see.</td>
+</tr>
+{{/if}}
+

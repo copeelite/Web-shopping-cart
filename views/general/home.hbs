@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/Home.css">
+    
+</head>
+<body>
+    {{>navbar}}
+    {{>hero}}
+    <div class="text-dark text-center text-md-start content_section">
+        <div class="container mt-1">
+            <div class="d-md-flex align-items-center justify-content-between content_wrapper_small">
+                <div class="content_small">
+                    <h1>How will you <span class="text-warning">Carvelebrate</span>?</h1>
+                    <div>
+                        <p class="lead my-4">No matter the occasion, there&#8217s always a reason to Carvelebrate (even if it&#8217s just an excuse to order an ice cream cake). So grab a handmade ice cream cake from your local shoppe to make it a #Carvelebration to remember.
+                        </p>
+                    </div>
+                    <div class="pim_btn1">
+                        <a id="learn_more" href="#" >Learn&nbspmore</a>
+                        <div id="star">
+                            <img  src="https://www.carvel.com/-/media/carvel/icons/button/star-icon-border.png?v=1&d=20200721T162355Z&h=133&w=142&la=en&hash=2310B78473B493485A7F8F7B7581172A"  alt="start icon">
+                        </div>
+                    </div>
+                </div>
+                <img class="carvelebrate img-fluid" src="https://www.carvel.com/-/media/carvel/callouts/car-803039-everyday-cakes-homepage-card-2022-01-everyday-cakes.jpg?v=1&d=20220707T082006Z&h=230&w=334&la=en&hash=9A7DC3BC9AFA4A003A71A57D63A241FD">
+            </div>
+        </div>
+        <div class="container mt-2 content_section">
+            <div class="mb-2 mr-2 d-md-flex align-items-center justify-content-between">
+                <img class="img-fluid chef" src="https://www.carvel.com/-/media/carvel/heros/secondary/cake-design-new.png?v=1&amp;d=20200316T081643Z">
+                <div class="content_wrapper">
+                    <h1><span class="text-success">Custom</span> Design Cakes</h1>
+                    <h2>Handmade Fresh in the Shoppe</h2>
+                    <hr class="sh-line">
+                    <p> Customize a cake for any occasion—birthdays, 
+                        holidays, your socks matching.
+                    </p>
+                    <div class="pim_btn">
+                        <a  href="#" id="get_started">Get Started
+                        <img id="icon_rotate" src="https://www.carvel.com/-/media/carvel/icons/button/piping-bag.png?v=1&amp;d=20200721T162234Z&amp;h=221&amp;w=125&amp;la=en&amp;hash=2E93F355E046790CA82A18039FD3213B"  alt="Piping Bag Icon">
+                        </a>
+                    </div>
+                </div>       
+            </div>
+        </div>
+
+         <div class="content_section1">
+            <div class="design_cake">
+                <div class="bg">
+                    <h1>Design your Cake</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_section1">
+            <div class="intro_customized_cake">
+                <div class="d-flex flex-column align-items-center part-title">
+                    <h1>Handmade Fresh in The Shoppe</h1>
+                    <hr class="border border-danger border-2 opacity-50">
+                    <p>Customize a cake for your special occasion from birthdays, to holidays, special occasions, and all of the little things in life.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pb-5 pt-2 content_section1">
+            <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-row control_btn">
+                    <button class="btn+1" onclick="displayPart(0)">&#60; </button>
+                    <button class="btn-1" onclick="displayPart(1)"> &#62;</button>
+                </div>
+                <div class="two-btn">
+                    <div class="display-part d-flex flex-column"></div>
+                </div>
+            </div>
+        </div>
+
+
+        
+            <div class="how_it_works d-flex align-items-center flex-column">
+                <h1>HOW IT WORKS</h1>
+                <a href="https://www.youtube.com/embed/AsLGLcGCyNE" target="_blank">Watch the video </a>
+            </div>
+        <div class="container">
+                <div class="row2 row mt-2">
+                    <div class="col feature">
+                        <div class="how_it_works_visual">
+                            <img class="img-thumbnail img-fluid" src="/image/cake1.png" alt="">
+                         </div>
+                        <h4 class="text-success">We create freshiest recipes</h4>
+                        <p>Our great team uses premium fresh ingredients to create the unique product for cake, ice-cream as you wish.</p>
+                    </div>
+                    <div class="col feature">
+                        <div class="how_it_works_visual">
+                            <img class="img-thumbnail img-fluid" src="/image/cake2.png" alt="">
+                         </div>
+                        <h4 class="text-success">You choose your preference</h4>
+                        <p>Choose from a variety of delicious fresh ice-cream product each week
+                            that make you happy all the time.      
+                        </p>
+                    </div>
+                    <div class="col feature">
+                        <div  class="how_it_works_visual">
+                            <img class="img-thumbnail img-fluid" src="/image/cake3.png" alt="">
+                         </div>
+                        <h4 class="text-success">We delivery fresh ingredients</h4>
+                        <p>It starts with your choice of premium soft ice cream. Add your favorite topping: chocolate, fudge, caramel, strawberry, etc. Then we crown it with handmade whipped cream decoration. There's nothing like a classic ice cream Cake.
+                        </p>
+                    </div>
+                    <div class="col feature">
+                        <div class="how_it_works_visual">
+                            <img class="img-thumbnail img-fluid" src="/image/cake4.png" alt="">
+                         </div>
+                        <h4 class="text-success">You turn image to be edible just a click</h4>
+                        <p>Send the image which you want to put on cake online. Our great edible image printing service will make your cake to another level and style. </p>
+                    </div>
+                </div>
+            
+        </div>
+        
+
+
+        <div class="d-flex flex-column">
+            <div class="cake-title">
+                <h1>Fave Cakes</h1>
+                <p>
+                    The next time you&#8217re looking for an ice cream cake shoppe to make your celebration a little sweeter, head to your local Carvel. We have an ice cream cake for every occasion, and because each cake is handmade in-shoppe, you can personalize or customize it to suit your every cake need. Find or create your perfect ice cream cake at a Carvel shoppe near you.</p>
+            </div>
+            <div class="menu-card">
+                {{#each cake}}
+                    {{>mealkit}}
+                {{else}}
+                    <tr>
+                        <td colspan="4">There are no cake to show.</td>
+                    </tr>
+                {{/each}}
+            </div>
+        </div>
+
+        {{>footer}}
+    </div>
+    <script src="/js/home.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</body>
+</html>

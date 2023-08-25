@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <link rel="stylesheet" href="/css/CardForClerk.css">
+
+  </head>
+  {{>navbar}}
+  <body class="text-center">
+    {{!-- make customer part first and then admin --}}
+    <h1 class="text-primary text-center">{{user.firstName}} {{user.lastName}} Welcome to Cart</h1>
+     <h2>Total: {{cartTotal}}</h2>
+     <a href="/place-order" class="btn btn-warning">Place your order</a>
+     <a href="/clear-mealkit" class="btn btn-danger ps-4 pe-4">clear the cart</a>
+    <div class="row">
+
+        
+        {{#if hasMealkits}}
+         
+         {{#each mealkits}}
+            
+            {{#each mealkit}}
+            <div class="col-sm-6 col-md-4 d-flex align-items-stretch"> 
+            <div class="card" style="width: 18rem;">
+            <img src="/image/{{imageUrl}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p>priceForOne: ${{price}}</p>
+            <p class="fw-bold">extendedPrice: ${{extendedPrice}}</p>
+            
+            
+            {{/each}}
+            </div>
+            <p class="card-text text-center">{{qty}}</p>
+            <div class="toolbar d-flex justify-content-center">
+                <a href="/add-mealkit/{{id}}"><i class="fa-solid fa-plus ps-5"></i></a>
+                <a href="/remove-mealkit/{{id}}"><i class="fa-solid fa-minus pe-5"></i></a>
+            </div>
+            </div>
+        </div>
+         {{/each}}
+        {{/if}}
+        
+    </div>
+  {{>footer}}
+  </body>
+</html>

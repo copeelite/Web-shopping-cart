@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="/css/Header.css">
+    <title>Ice Cream & Cake Shop</title>
+    
+  </head>
+    <body class="p-3 m-0 border-0 bd-example">
+
+        <nav class="navbar navbar-expand-lg fixed-top nav-tabs header_dec">
+            
+            <div class="container-fluid col">
+                <div class="col-3 px-0">
+                    <a class="navbar-brand" href="/">
+                    <img  src="/image/headerLogo.png" class="img-fluid" alt="carvel-logo" /></a>
+                </div>
+                <button
+                class="mobile-nav-toggle navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                id="navbar_btn"
+                >
+                </button>
+                <div class="collapse navbar-collapse" data-visible="false" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="header_optionLineOne nav-link" href="/on-the-menu">On the menu</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="header_optionLineOne nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="header_optionLineOne nav-link" href="#">Faq</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="header_optionLineOne nav-link" href="#">GIFT CARD</a>
+                        </li>
+                    </ul>
+                    {{#if user}}
+                    <form class="d-flex pe-2" role="search">
+                        <div class="d-flex flex-column">
+                            <span>Hello</span>
+                            {{!-- /customer/cart /clerk/list-mealkits --}}
+                            <a href="{{user.profilePic}}" id="typeLink"> {{user.firstName}} {{user.lastName}}</a>
+                        </div>
+                        <span><a href="/user/logout">Logout</a></span>
+                    </form>
+                    {{else}}
+                    <form class="d-flex" role="search">
+                        <div class="btn-group" role="group">
+                            <a href="/user/sign-up"
+                            class="col-1 btn btn-block sign_up"
+                            type="submit"
+                            >Sign&nbspup</a>
+                            <a href="/user/log-in"
+                            class="col-1 btn btn-block log_in"
+                            type="submit"
+                            >Log&nbspin</a>
+                        </div>
+                        
+                    </form>
+                    {{/if}}
+                    
+                </div>
+            </div>
+        </nav>
+
+        
+        {{!-- <script src="/js/navbar.js"></script> --}}
+        
+    </body>
+</html>

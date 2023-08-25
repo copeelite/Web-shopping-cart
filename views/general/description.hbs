@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/css/Card.css">
+
+</head>
+<body>
+    {{>navbar}}
+        <p style="color:red;">{{message}}</p>
+
+        {{#each cake}}
+        <div class="col-sm-6"> 
+        <div class="card align-items-center">
+        <img src="/image/{{imageUrl}}" class="img-fluid card-img-top" alt="Picture of {{title}}"/>
+        <div class="card_body">
+            <h4>{{title}}</h4>
+            <p class="description">{{description}}</p>
+            <p>CookingTime: {{cookingTime}}</p>
+            <p>Number of servings: {{servings}}</p>
+            <p>Price: ${{price}}</p>
+        </div>
+        <button class="btn btn-danger mb-2" onclick="window.location.href='/add-mealkit/{{_id}}'">Add to Order</button>
+    </div>
+        </div>
+        {{/each}}
+    {{>footer}}
+</body>
+</html>

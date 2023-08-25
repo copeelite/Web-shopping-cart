@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <link rel="stylesheet" href="/css/SignUpLogin.css">
+  <link rel="stylesheet" href="/css/listMealkits.css">
+  </head>
+  {{>navbar}}
+  <body class="text-center">
+    <h1 class="text-primary text-center">{{user.firstName}} {{user.lastName}} Welcome to list-mealkits</h1>
+    
+    
+    {{!-- **************************************************** --}}
+    
+
+    <main>
+      <header>
+        <img class="header-logo" src="https://seeklogo.com/images/C/Carvel-logo-BA4F5A17F1-seeklogo.com.png">
+        <h4 class="header-title text-success">add new item using the form below, edit mealkit by clicking on the card, remove mealkit by hover and clicking delete button at the bottom of the card</h4>
+        
+      </header> 
+         
+          <div id="form-container">
+              <form id="form" method="post" action="/clerk/add-mealkit" autocomplete="off" enctype="multipart/form-data">
+              <div class="note-title">
+                <div class="form-floating">
+                  <input class="form-control" id="floatingInput"  placeholder="Title" type="text" name="title" value="{{values.title}}">
+                  <label class="lable-title" for="floatingInput"></label>
+                  {{#if validationMessages.title}}
+                    <span style="color: red;">{{validationMessages.title}}</span><br/>
+                  {{/if}}
+                </div>
+              </div>
+            <div class="note-text">
+              <div class="form-floating mb-2">
+                <input class="form-control" id="floatingInput"  placeholder="Include" type="text" name="includes" value="{{values.includes}}">
+                <label for="floatingInput">Include</label>
+                {{#if validationMessages.includes}}
+                    <span style="color: red;">{{validationMessages.includes}}</span><br/>
+                  {{/if}}
+              </div>
+
+              <div class="form-floating mb-2">
+                <input class="form-control" id="floatingInput"  placeholder="Category" type="text" name="category" value="{{values.category}}">
+                <label for="floatingInput">Category</label>
+                {{#if validationMessages.category}}
+                    <span style="color: red;">{{validationMessages.category}}</span><br/>
+                  {{/if}}
+              </div>
+
+              <div class="form-floating mb-2">
+                <input class="form-control" id="floatingInput"  placeholder="Price" type="text" name="price" value="{{values.price}}">
+                <label for="floatingInput">Price</label>
+                {{#if validationMessages.price}}
+                    <span style="color: red;">{{validationMessages.price}}</span><br/>
+                {{/if}}
+              </div>
+
+              <div class="form-floating mb-2">
+                <input class="form-control" id="floatingInput"  placeholder="CookingTime" type="text" name="cookingTime" value="{{values.cookingTime}}">
+                <label for="floatingInput">CookingTime</label>
+                {{#if validationMessages.cookingTime}}
+                    <span style="color: red;">{{validationMessages.cookingTime}}</span><br/>
+                  {{/if}}
+              </div>
+
+              <div class="form-floating mb-2">
+                <input class="form-control" id="floatingInput"  placeholder="Servings" type="text" name="servings" value="{{values.servings}}">
+                <label for="floatingInput">Servings</label>
+                {{#if validationMessages.servings}}
+                    <span style="color: red;">{{validationMessages.servings}}</span><br/>
+                  {{/if}}
+              </div>
+                 
+              <div class="mb-3">
+                    <label for="formFile" class="form-label">Upload a picture for item</label>
+                    <input class="form-control" type="file" id="formFile" name="imageUrl">
+                    {{#if validationMessages.imageUrl}}
+                    <span style="color: red;">{{validationMessages.imageUrl}}</span><br/>
+                  {{/if}}
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-text">
+                  <label for="checkbox">Is it a Top Meal?</label>
+                  <input class="form-check-input mt-0 ms-2" type="checkbox" aria-label="Checkbox for following text input" id="checkbox" name="topMeal" value="true">
+                </div>
+              </div>
+            
+                 <div class="form-floating">
+                    <textarea cols="50" class="form-control" placeholder="Description" id="floatingTextarea" name="description"></textarea>
+                    <label for="floatingTextarea">Description</label>
+                    {{#if validationMessages.description}}
+                    <span style="color: red;">{{validationMessages.description}}</span><br/>
+                  {{/if}}
+                  </div>
+                 {{!-- <textarea  rows="1" cols="50" id="note-text" placeholder="Description" name="description"></textarea> --}}
+                 
+            </div>
+
+                 <div id="form-buttons">
+                    <button type="submit" id="submit-button">Submit</button> 
+                    <button type="button" id="form-close-button">Close</button> 
+                 </div>
+              </form>              
+          </div>
+          {{#each errors}}
+              <p class="text-center" style="color:red;">{{this}} {{errors}}</p>
+              <a class="text-center" href="../../clerk/list-mealkits">go back to mealkit page</a>
+        {{/each}}
+        <div class="container text-center">
+          <div class="row">
+          {{#each cake}}
+              {{> itemModal}}
+              <div class="col-sm-6 col-md-4">
+              {{>mealkitCardForClerk}}
+              </div>
+          {{else}}
+              <div id="placeholder">
+                <img id="placeholder-logo" src="https://ih1.redbubble.net/image.1313792106.5430/st,small,507x507-pad,600x600,f8f8f8.jpg">
+                <p id="placeholder-text">Mealkit you add appear here</p>
+            </div>
+          {{/each}}
+          </div>
+        </div> 
+
+      <div class="text-center">
+        <h2>click this button to go loading-original-data</h2>
+        <a href="/load-data/meal-kits">Load up data</a>
+      </div>
+    </main>
+    <script src="/js/listMealkits.js"></script>
+
+  </body>
+  {{>footer}}
+</html>
+
+
+
+<script>
+const $form = document.getElementById('modal-form')
+const exampleModal = document.getElementById('exampleModal')
+
+
+exampleModal.addEventListener('show.bs.modal', event => {
+  // Button that triggered the modal
+  const button = event.relatedTarget
+  
+  // Extract info from data-bs-* attributes
+  const recipient = button.getAttribute('data-bs-whatever')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  
+  // Update the modal's content.
+  const modalTitle = exampleModal.querySelector('.modal-title')
+  const modalBodyInputTitle = exampleModal.querySelector('.input-title')
+  const modalBodyInputIncludes = exampleModal.querySelector('.input-includes')
+  const modalBodyInputCategory = exampleModal.querySelector('.input-category')
+  const modalBodyInputPrice = exampleModal.querySelector('.input-price')
+  const modalBodyInputCookingTime = exampleModal.querySelector('.input-cookingTime')
+  const modalBodyInputServings = exampleModal.querySelector('.input-servings')
+  const modalBodyInputCheckbox = exampleModal.querySelector('#checkbox2')
+  const modalBodyInputDescription = exampleModal.querySelector('.input-description')
+
+
+  const array = recipient.split('𰻞')
+  
+  $form.action = `/clerk/edit-mealkit/${array[0]}`
+  modalTitle.textContent = `Edit to ${array[1]}`
+  console.log(array)
+  modalBodyInputTitle.value = array[1]
+  modalBodyInputIncludes.value = array[2]
+  modalBodyInputDescription.value = array[3]
+  modalBodyInputCategory.value = array[4]
+  modalBodyInputPrice.value = array[5]
+  modalBodyInputCookingTime.value = array[6]
+  modalBodyInputServings.value = array[7]
+  modalBodyInputCheckbox.checked = true ? (array[9] === 'true') : (array[9] === 'false')
+  
+})
+</script>

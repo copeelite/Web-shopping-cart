@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/css/Card.css">
+<style>
+    body {
+    background: linear-gradient(skyblue, #EFB0C9);
+}
+</style>
+{{#if categoryName}}
+    <h1 class="text-center">{{categoryName}}</h1>
+    <div class="row">
+        {{#each mealKits}}
+        
+        <div class="col-sm-6"> 
+        {{>mealkit}}
+        </div>
+        
+        {{else}}
+            <tr>
+                <td colspan="4">There are no cakes to show for this category.</td>
+            </tr>
+        {{/each}}
+        </div>
+{{else}}
+<tr>
+    <h1>{{title}}</h1>
+    <h1>{{servings}}</h1>
+    <td colspan="4">{{title}} has hidden cakes and you cannot see.</td>
+</tr>
+{{/if}}
