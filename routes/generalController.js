@@ -68,6 +68,15 @@ router.get("/on-the-menu/:id", (req, res) => {
         console.log(err)
     })
 })
+// const findMealkit = function(id){
+//     return mealkitModel.find({_id:id}).exec().then(
+//         (cake)=>{
+//         let tempCake = cake.map(value => value.toObject())
+//         return tempCake
+//     }).catch(err =>{
+//         console.log(err)
+//     })
+// }
 
 
 router.get("/add-mealkit/:id", (req, res) => {
@@ -184,28 +193,28 @@ router.get("/place-order", (req, res) => {
         // const sgMail = require("@sendgrid/mail");
         // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-        const msg = {
-            to: email,
-            from: "2869621248@qq.com",
-            subject: "Your order confirmation",
-            html:
-                `
-                Total Price: ${cartTotal}<br>
-                order list: ${cart.map(element => {
-                    return element.mealkit.map(meal =>
-                         {
-                             return (meal.title + " " + element.qty + " ")
-                         })
+        // const msg = {
+        //     to: email,
+        //     from: "2869621248@qq.com",
+        //     subject: "Your order confirmation",
+        //     html:
+        //         `
+        //         Total Price: ${cartTotal}<br>
+        //         order list: ${cart.map(element => {
+        //             return element.mealkit.map(meal =>
+        //                  {
+        //                      return (meal.title + " " + element.qty + " ")
+        //                  })
                      
-                 })}
-                `
-        };
+        //          })}
+        //         `
+        // };
 
         // sgMail.send(msg)
         //     .then(() => {
-        //         console.log("send successfully")
-        //         req.session.cart = []
-        //         res.redirect('/customer/cart')
+                console.log("send successfully")
+                req.session.cart = []
+                res.redirect('/customer/cart')
         //     })
         
     }
