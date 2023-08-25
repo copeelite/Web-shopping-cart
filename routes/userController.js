@@ -206,44 +206,58 @@ router.post("/sign-up", (req, res) => {
         else{
             checkEverything()
             if (passedValidation) {
-                const sgMail = require("@sendgrid/mail");
-                sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+                const user = new userModel({
+                    firstName,
+                    lastName,
+                    email,
+                    password
+                })
+                user.save()
+                .then(userSaved => {
+                    console.log(`User ${userSaved.firstName} has been added to the database.`)
+                    res.redirect("/welcome")
+                })
+                .catch(err => {
+                    console.log(`Error adding user to the database ... ${err}`)
+                })
+                // const sgMail = require("@sendgrid/mail");
+                // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         
-                const msg = {
-                    to: email,
-                    from: "2869621248@qq.com",
-                    subject: "sign-up Form Submission",
-                    html:
-                        `
-                        Welcome ${firstName} ${lastName}<br>
-                        Visitor's Full Name: ${firstName} ${lastName}<br>
-                        author's name: FanghaoMeng<br>
-                        website name: Carvel<br>
-                        `
-                };
+                // const msg = {
+                //     to: email,
+                //     from: "2869621248@qq.com",
+                //     subject: "sign-up Form Submission",
+                //     html:
+                //         `
+                //         Welcome ${firstName} ${lastName}<br>
+                //         Visitor's Full Name: ${firstName} ${lastName}<br>
+                //         author's name: FanghaoMeng<br>
+                //         website name: Carvel<br>
+                //         `
+                // };
         
-                sgMail.send(msg)
-                    .then(() => {
-                        const user = new userModel({
-                            firstName,
-                            lastName,
-                            email,
-                            password
-                        })
-                        user.save()
-                        .then(userSaved => {
-                            console.log(`User ${userSaved.firstName} has been added to the database.`)
-                            res.redirect("/welcome")
-                        })
-                        .catch(err => {
-                            console.log(`Error adding user to the database ... ${err}`)
-                        })
+                // sgMail.send(msg)
+                //     .then(() => {
+                //         const user = new userModel({
+                //             firstName,
+                //             lastName,
+                //             email,
+                //             password
+                //         })
+                //         user.save()
+                //         .then(userSaved => {
+                //             console.log(`User ${userSaved.firstName} has been added to the database.`)
+                //             res.redirect("/welcome")
+                //         })
+                //         .catch(err => {
+                //             console.log(`Error adding user to the database ... ${err}`)
+                //         })
         
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        refresh()
-                    });
+                //     })
+                //     .catch(err => {
+                //         console.log(err);
+                //         refresh()
+                //     });
             }
             else {
                 refresh()

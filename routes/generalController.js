@@ -68,15 +68,6 @@ router.get("/on-the-menu/:id", (req, res) => {
         console.log(err)
     })
 })
-// const findMealkit = function(id){
-//     return mealkitModel.find({_id:id}).exec().then(
-//         (cake)=>{
-//         let tempCake = cake.map(value => value.toObject())
-//         return tempCake
-//     }).catch(err =>{
-//         console.log(err)
-//     })
-// }
 
 
 router.get("/add-mealkit/:id", (req, res) => {
